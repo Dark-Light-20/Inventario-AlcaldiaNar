@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Datos-Colombia-API</string>
+    <string name="version">v0.4</string>
 </resources>

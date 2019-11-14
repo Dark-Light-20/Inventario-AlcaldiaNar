@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     ArrayList<Inventory> inventories = response.body();
 
                     for(int i=0;i<inventories.size();i++){
-                        Inventory inventory = (Inventory)inventories.get(i);
+                        Inventory inventory = inventories.get(i);
                         Log.i(TAG, "Equipo #"+inventory.getId()+": "
                         +inventory.getPropietario()+", "+inventory.getDescripcionEquipo());
                     }
