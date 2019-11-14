@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Datos-Colombia-API</string>
+    <string name="version">v0.5</string>
+    <string name="app_tittle">App Inventario de Equipos</string>
+    <string name="dev_txt">Desarrollada por:</string>
+    <string name="aut_name">Sebastian Diaz Paz</string>
+    <string name="ic_desc">Icono App</string>
+    <string name="about">Acerca de&#8230;</string>
+    <string name="municipal">Alcaldia Municipal de Nariño</string>
+    <string name="inventory">Inventario</string>
+
+    <string name="navigation_drawe_open">Open navigation drawer</string>
+    <string name="navigation_drawe_close">Close navigation drawer</string>
+</resources>
