@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Data-Colombia-API</string>
-    <string name="version" translatable="false">v1.0</string>
+    <string name="version" translatable="false">v1.0.2</string>
     <string name="app_tittle">Equipment Inventory App</string>
     <string name="dev_txt">Developed By:</string>
     <string name="aut_name" translatable="false">Sebastian Diaz Paz</string>
