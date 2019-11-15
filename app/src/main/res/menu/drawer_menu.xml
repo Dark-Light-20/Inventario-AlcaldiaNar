@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item android:title="Menu">
+    <item android:title="@string/menu">
         <menu>
             <item android:id="@+id/inventory_item"
                 android:icon="@mipmap/ic_inventory"
@@ -12,7 +12,7 @@
         </menu>
     </item>
 
-    <item android:title="Extra">
+    <item android:title="@string/extra">
         <menu>
             <item android:id="@+id/about_item"
                 android:icon="@drawable/ic_about"

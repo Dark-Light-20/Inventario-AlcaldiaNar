@@ -1,14 +1,19 @@
 <resources>
     <string name="app_name">Data-Colombia-API</string>
-    <string name="version">v0.5</string>
+    <string name="version" translatable="false">v0.7</string>
     <string name="app_tittle">Equipment Inventory App</string>
     <string name="dev_txt">Developed By:</string>
-    <string name="aut_name">Sebastian Diaz Paz</string>
+    <string name="aut_name" translatable="false">Sebastian Diaz Paz</string>
     <string name="ic_desc">App icon</string>
     <string name="about">About&#8230;</string>
     <string name="municipal">Municipal Mayor of Nariño</string>
     <string name="inventory">Inventory</string>
+    <string name="no_string">No description</string>
+    <string name="owner">Owner</string>
+    <string name="id" translatable="false">ID</string>
+    <string name="menu" translatable="false">Menu</string>
+    <string name="extra" translatable="false">Extra</string>
 
-    <string name="navigation_drawe_open">Open navigation drawer</string>
-    <string name="navigation_drawe_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 </resources>

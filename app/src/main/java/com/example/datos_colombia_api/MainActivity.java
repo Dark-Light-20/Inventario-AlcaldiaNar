@@ -25,16 +25,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAG = "DATOSCOl";
+    private static final String TAG = "DATACOl";
 
     private Retrofit retrofit;
 
-    private AboutFragment aboutFragment = new AboutFragment();
+    private ArrayList<Inventory> inventories;
+
+    private AboutFragment aboutFragment;
+    private InventoryFragment inventoryFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        aboutFragment = new AboutFragment();
+        inventoryFragment = new InventoryFragment();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -45,16 +51,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setItemIconTintList(null);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawe_open, R.string.navigation_drawe_close);
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
 
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://www.datos.gov.co/resource/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         getData();
+
+        if(savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    inventoryFragment).commit();
+            navigationView.setCheckedItem(R.id.inventory_item);
+        }
     }
 
     private void getData() {
@@ -65,13 +76,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onResponse(Call<ArrayList<Inventory>> call, Response<ArrayList<Inventory>> response) {
                 if (response.isSuccessful()) {
-                    ArrayList<Inventory> inventories = response.body();
+                    inventories = response.body();
 
                     for(int i=0;i<inventories.size();i++){
                         Inventory inventory = inventories.get(i);
                         Log.i(TAG, "Equipo #"+inventory.getId()+": "
                         +inventory.getPropietario()+", "+inventory.getDescripcionEquipo());
                     }
+
+                    inventoryFragment.adapter.addInventories(inventories);
                 }
                 else {
                     Log.e(TAG, " onResponse: "+response.errorBody());
@@ -103,9 +116,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         aboutFragment).commit();
                 getSupportActionBar().setTitle(getString(R.string.about));
                 break;
+
+            case R.id.inventory_item:
+                getData();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        inventoryFragment).commit();
+                getSupportActionBar().setTitle(getString(R.string.inventory));
+                break;
         }
 
-            DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.closeDrawer(GravityCompat.START);
 
         return true;
