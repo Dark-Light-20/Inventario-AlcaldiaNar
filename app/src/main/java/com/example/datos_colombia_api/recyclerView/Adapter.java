@@ -3,6 +3,8 @@ package com.example.datos_colombia_api.recyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,10 +32,33 @@ public class Adapter extends RecyclerView.Adapter<Holder> {
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-        holder.description.setText(inventories.get(position).getDescripcionEquipo());
-        holder.id.setText(inventories.get(position).getId());
-        holder.owner.setText(inventories.get(position).getPropietario());
-        // do "if" for image // import generic images
+        TextView description = holder.getDescription();
+        TextView id = holder.getId();
+        TextView owner = holder.getOwner();
+        ImageView imageView = holder.getImageView();
+
+        String txtId = "#"+inventories.get(position).getId()+": ";
+
+        description.setText(inventories.get(position).getDescripcionEquipo());
+        id.setText(txtId);
+        owner.setText(inventories.get(position).getPropietario());
+        switch (inventories.get(position).getDescripcionEquipo()) {
+            case "Computador":
+                imageView.setBackgroundResource(R.drawable.computer);
+                break;
+            case "Monitor":
+                imageView.setBackgroundResource(R.drawable.monitor);
+                break;
+            case "Impresora":
+                imageView.setBackgroundResource(R.drawable.printer);
+                break;
+            case "Fotocopiadora":
+                imageView.setBackgroundResource(R.drawable.photocopier);
+                break;
+            case "Escaner":
+                imageView.setBackgroundResource(R.drawable.scanner);
+                break;
+        }
     }
 
     @Override

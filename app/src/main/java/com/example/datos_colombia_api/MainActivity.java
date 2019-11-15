@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     for(int i=0;i<inventories.size();i++){
                         Inventory inventory = inventories.get(i);
+                        if (inventory.getId() == null) inventories.remove(i);
                         Log.i(TAG, "Equipo #"+inventory.getId()+": "
                         +inventory.getPropietario()+", "+inventory.getDescripcionEquipo());
                     }
