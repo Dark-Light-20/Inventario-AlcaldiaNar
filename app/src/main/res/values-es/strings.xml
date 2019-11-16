@@ -9,4 +9,8 @@
     <string name="inventory">Inventario</string>
     <string name="no_string">Sin descripción</string>
     <string name="owner">Propietario</string>
+    <string name="type">Tipo: </string>
+    <string name="brand">Marca: </string>
+    <string name="status">Estado: </string>
+    <string name="location">Ubicación: </string>
 </resources>
